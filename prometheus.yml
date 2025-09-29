@@ -4,10 +4,16 @@ global:
 scrape_configs:
   - job_name: 'node_exporter'
     static_configs:
-      - targets: ['node_exporter:9100']  # Target for Node Exporter
+      - targets: ['node_exporter:9100']
 
   - job_name: 'flask_app'
-    scrape_interval: 5s   # Custom scrape interval for this job
-    metrics_path: '/metrics'  # Path to scrape metrics from
+    scrape_interval: 5s
+    metrics_path: '/metrics'
     static_configs:
-      - targets: ['flask-app:5001']  # Flask app metrics target
+      - targets: ['flask-app:5001']
+
+  # - job_name: 'spring_boot_app'
+  #   scrape_interval: 5s
+  #   metrics_path: '/actuator/prometheus'
+  #   static_configs:
+  #     - targets: ['localhost:8080']  
